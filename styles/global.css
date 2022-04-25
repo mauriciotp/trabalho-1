@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+  background: #fefefe;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+strong {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.files {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}

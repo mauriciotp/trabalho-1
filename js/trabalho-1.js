@@ -1,8 +1,16 @@
+import { saveAs } from 'file-saver';
+
 const input = document.getElementById('inputfile');
+const derivadaBtn = document.getElementById('baixar-derivada');
 let x = [];
 let y = [];
 let derivada = [];
 let output = [];
+
+function downloadOutputForDerivative() {
+  const blob = new Blob(output, { type: 'text/plain;charset=utf-8' });
+  saveAs(blob, 'derivada.txt');
+}
 
 function deriva(lines) {
   const n = lines.length;
@@ -40,3 +48,5 @@ input.addEventListener('change', function () {
 
   fr.readAsText(this.files[0]);
 });
+
+derivadaBtn.addEventListener('click', downloadOutputForDerivative);

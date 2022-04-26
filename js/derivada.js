@@ -1,5 +1,3 @@
-import { saveAs } from 'file-saver';
-
 const input = document.getElementById('inputfile');
 const derivadaBtn = document.getElementById('baixar-derivada');
 let x = [];
@@ -8,7 +6,9 @@ let derivada = [];
 let output = [];
 
 function downloadOutputForDerivative() {
-  const blob = new Blob(output, { type: 'text/plain;charset=utf-8' });
+  const blob = new Blob([output.join('\n')], {
+    type: 'text/plain;charset=utf-8',
+  });
   saveAs(blob, 'derivada.txt');
 }
 
@@ -43,7 +43,7 @@ input.addEventListener('change', function () {
   fr.onload = function () {
     document.getElementById('data').textContent = fr.result;
     deriva(fr.result.split('\r\n'));
-    document.getElementById('output').textContent = output.join('\n');
+    document.getElementById('output-derivada').textContent = output.join('\n');
   };
 
   fr.readAsText(this.files[0]);

@@ -13,21 +13,30 @@
       <p>Selecione o arquivo txt para realizar a leitura:</p>
       <input type="file" name="inputfile" id="inputfile" />
 
-      <h2>Derivação</h2>
-
       <div class="files">
         <div>
+          <h2>Dados fornecidos pelo professor</h2>
           <strong>Dados.txt:</strong>
           <pre id="data"></pre>
         </div>
 
         <div>
+          <h2>Derivação</h2>
           <strong>Output.txt:</strong>
           <button type="button" id="baixar-derivada">Clique para baixar</button>
-          <pre id="output"></pre>
+          <pre id="output-derivada"></pre>
+        </div>
+
+        <div>
+          <h2>Integração</h2>
+          <strong>Output.txt:</strong>
+          <button type="button" id="baixar-integral">Clique para baixar</button>
+          <pre id="output-integral"></pre>
         </div>
       </div>
     </main>
-    <script src="/js/trabalho-1.js"></script>
+    <script src="/node_modules/file-saver/src/FileSaver.js"></script>
+    <script type="module" src="/js/derivada.js"></script>
+    <script type="module" src="/js/integral.js"></script>
   </body>
 </html>

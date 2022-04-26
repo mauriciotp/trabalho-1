@@ -8,7 +8,7 @@ function deriva(lines) {
   const n = lines.length;
 
   for (let i = 0; i < n; i++) {
-    split = lines[i].split(' ').map((e) => parseFloat(e));
+    const split = lines[i].split(' ').map((e) => parseFloat(e));
     x.push(split[0]);
     y.push(split[1]);
   }
@@ -23,7 +23,10 @@ function deriva(lines) {
 
   derivada.push((y[n - 1] - y[n - 2]) / delta);
 
-  derivada = derivada.map((e) => Math.round(e));
+  for (let i = 0; i < n; i++) {
+    const linha = x[i].toString() + ' ' + derivada[i].toString();
+    output.push(linha);
+  }
 }
 
 input.addEventListener('change', function () {
@@ -32,6 +35,7 @@ input.addEventListener('change', function () {
   fr.onload = function () {
     document.getElementById('data').textContent = fr.result;
     deriva(fr.result.split('\r\n'));
+    document.getElementById('output').textContent = output.join('\n');
   };
 
   fr.readAsText(this.files[0]);
